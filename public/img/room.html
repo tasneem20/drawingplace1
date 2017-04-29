@@ -1,0 +1,398 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<link type="text/css" href="index.css" rel="stylesheet"/>
+<link rel="shortcut icon" href="img/images.jpg">
+<title>
+DrwaingPlace
+</title>
+</head>
+
+
+
+<body>
+<div id="container">
+ 
+			 <img  id="logo1"src="img/i1.png" title="DrawingPlace" width="300px" height="200px">
+			 <center>
+				<img  id="logo2"src="img/logoo.png" title="DrawingPlace" height="260px">
+			</center>
+		
+
+
+<section id="drawroom">
+<canvas id="myCanvas" width="940" height="400" style="border:1px solid #004a80;">
+<!-- Load the Paper.js library -->
+<script type="text/javascript" src="js/paper.js"></script>
+<!-- Define inlined PaperScript associate it with myCanvas -->
+<!--<script type="text/paperscript", src="js/draw.js", canvas="myCanvas")-->
+<script type="text/paperscript" canvas="myCanvas">
+
+
+function onMouseDown(event) {
+    myPath = new Path();
+    var color=document.colors.elements["color"].value;
+    var size=document.dotsSize.elements["color2"].value;
+    var write=document.action.elements["color1"].value;
+
+if(write=="rubber")
+{
+	myPath.style = {
+                strokeWidth:20,
+            }
+	myPath.strokeColor = 'white';
+
+}
+    
+else
+{
+    
+	if(size=='big')
+	{
+		thickness =  17;
+	}
+	else if(size=='medium')
+	{
+		thickness =  11;
+	}
+	else if(size=='small')
+	{
+		thickness =  7;
+	}
+	else
+	{
+		thickness =  3;
+	}
+
+    
+    myPath.style = {
+                strokeWidth:thickness,
+            }
+    if(color=='red')
+    {
+		myPath.strokeColor = 'red';
+		myPath.scale(60);
+	}
+	else if(color=='yellow')
+	{
+		myPath.strokeColor = 'yellow';
+	}
+	else if(color=='blue')
+	{
+		myPath.strokeColor='blue';
+	}
+	else if(color=='purple')
+	{
+		myPath.strokeColor='purple';
+	}
+	else if(color=='gray')
+	{
+		myPath.strokeColor='grey';
+	}
+	else if(color=='green')
+	{
+		myPath.strokeColor='green';
+	}
+	else if(color=='white')
+	{
+		myPath.strokeColor='white';
+	}
+	else
+	{
+		myPath.strokeColor = 'black';
+	}
+}
+
+	
+}
+ 
+function onMouseDrag(event) {
+
+    myPath.add(event.point);
+}
+ 
+function onMouseUp(event) {
+   
+}
+</script>
+</canvas>
+</section>
+
+<section id="drawtool">
+<div class="tools">
+<div class="tab">
+	<img id="colors" src="img/color.png" title="colors" width="50px" height="50px">
+	
+	<div class="choosecolor">
+		<form name="colors">
+		<label>
+		<input type="radio" name="color" value="red">
+			<img src="img/red.png" title="red"  width="50px" height="50px">
+			</label>
+			<label>
+			<input type="radio" name="color" value="green">
+			<img src="img/green.png" title="green" width="50px" height="50px">
+			</label>
+			<label>
+			<input type="radio" name="color" value="yellow">
+			<img src="img/yellow.png" title="yellow" width="50px" height="50px" >
+			</label>
+			<label>
+			<input type="radio" name="color" value="purple">
+			<img src="img/purple.png" title="purple" width="50px" height="50px">
+			</label>
+			<label>
+			<input type="radio" name="color" value="blue">			
+			<img src="img/blue.png" title="blue" width="50px" height="50px">
+			</label>
+			<label>
+			<input type="radio" name="color" value="gray">
+			<img src="img/gray.png" title="gray" width="50px" height="50px">
+			</label>
+			<label>
+			<input type="radio" name="color" value="white">
+			<img src="img/white.png" title="white" width="50px" height="50px">
+			</label>
+			<label>
+			<input type="radio" name="color" value="black">
+			<img src="img/dot2.png" title="black" width="50px" height="50px">
+			</label>
+			</form>
+		
+	</div>
+</div>
+<div class="choosedots">
+<img id="dots" src="img/dot1.png" title="dots" width="50px" height="50px">
+
+	<div class="dots">
+		
+		<form name="dotsSize">
+		<label>
+		<input type="radio" name="color2" value="verySmall">
+			<img src="img/dot.png" title="very small" width="50px" height="50px" id="red1">
+		</label>
+		<label>
+		<input type="radio" name="color2" value="small">
+			<img src="img/dot0.png" title="small" width="50px" height="50px" id="red1">
+		</label>
+		<label>
+		<input type="radio" name="color2" value="medium">
+			<img src="img/dot3.png" title="medium" width="50px" height="50px" id="red1">
+		</label>
+		<label>
+		<input type="radio" name="color2" value="big">
+			<img src="img/dot2.png" title="big" width="50px" height="50px" id="red1">
+		</label>
+			</form>			
+	</div>
+	</div>
+	
+<form name="action">
+		<label>
+		<input type="radio" name="color1" value="pen">
+<img id="pen" src="img/penn.png" title="pen" width="50px" height="50px">
+</label>
+<label>
+<input type="radio" name="color1" value="rubber">
+<img id="rubber" src="img/rubber.png" title="rubber" width="50px" height="50px">
+</label>
+</form>
+</div>
+
+<center>
+<fieldset class="type1">
+<center>
+<button id="myBtn1" class="myBtn">
+<p> <em>Start New Session</em> </p></center>
+</button>
+</fieldset>
+</center>
+
+<center>
+<fieldset class="type1">
+<center>
+<button id="myBtn2"  class="myBtn">
+<p> <em>Join existing room  </em></p></center>
+</button>
+</fieldset>
+</center>
+
+<center>
+<fieldset class="type1">
+<center>
+<button id="myBtn3"  class="myBtn">
+<p> <em>Share Room Name</em> </p></center>
+</button>
+</fieldset>
+</center>
+
+<center>
+<fieldset class="type1">
+<center>
+<button id="myBtn4"  class="myBtn">
+<p> <em>Save snapshot </em></p></center>
+</button>
+</fieldset>
+</center>
+
+<div id="chat">
+<p id="name">hi</p>
+<fieldset class="chat">
+<center>
+<p>Chat</p>
+</center>
+</fieldset>
+<form class="writemessage">
+<input type="text"  size="29"width="1000">
+</form>
+</div>
+
+<script>
+	// Get the modal
+var modal1 = document.getElementById('myModal1');
+var modal2 = document.getElementById('myModal2');
+var modal3 = document.getElementById('myModal3');
+var modal4 = document.getElementById('myModal4');
+var roomname= document.getElementById('roomname3');
+// Get the button that opens the modal
+var btn1 = document.getElementById("myBtn1");
+var btn2 = document.getElementById("myBtn2");
+var btn3 = document.getElementById("myBtn3");
+var btn4 = document.getElementById("myBtn4");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+var span3 = document.getElementsByClassName("close3")[0];
+var span4 = document.getElementsByClassName("close4")[0];
+
+// When the user clicks on the button, open the modal 
+btn1.onclick = function() {
+    modal1.style.display = "block";
+}
+
+btn2.onclick = function() {
+    modal2.style.display = "block";
+}
+
+btn3.onclick = function() {
+    modal3.style.display = "block";
+roomname.value=window.location.href;
+}
+
+
+btn4.onclick = function() {
+    modal4.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    modal1.style.display = "none";
+}
+span2.onclick = function() {
+    modal2.style.display = "none";
+}
+span3.onclick = function() {
+    modal3.style.display = "none";
+}
+span4.onclick = function() {
+    modal4.style.display = "none";
+}
+	</script>
+	
+	 <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        jQuery(function($) {
+            var socket = io.connect();
+            var $nickForm = $('#setNick1');
+            var $nickBox = $('#nickname1');
+            var $roomBox = $('#roomname1');
+
+            var $nickForm2 = $('#setNick2');
+            var $nickBox2 = $('#nickname2');
+            var $roomBox2 = $('#roomname2');
+			var $nickError=$('#error');
+			var $nickError1=$('#error1');
+			var $nickError2=$('#error2');
+			
+            var callback;
+            
+var $username=$("#name");
+var sr=getCookie("username");
+$username.html(sr);
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for(var i = 0; i <ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+} 
+function readCookie(name) {
+    var i, c, ca, nameEQ = name + "=";
+    ca = document.cookie.split(';');
+    for(i=0;i < ca.length;i++) {
+        c = ca[i];
+        while (c.charAt(0)==' ') {
+            c = c.substring(1,c.length);
+        }
+        if (c.indexOf(nameEQ) == 0) {
+            return c.substring(nameEQ.length,c.length);
+        }
+    }
+    return '';
+}
+
+
+			$nickForm.submit(function(e) {
+                e.preventDefault();
+                socket.emit('Create room', $roomBox.val(), function(callback) {
+                    if (callback) {
+                        console.log("yes");
+                        socket.emit('new user', $nickBox.val(), $roomBox.val());
+						writeCookie('username',$nickBox.val(),10);
+                        window.location.assign("http://localhost:3000/public/"+$roomBox.val()+".html");
+                    } else {
+                        $nickError.html('that room is already in use! click on join room');
+                    }
+                });
+            });
+
+            $nickForm2.submit(function(e) {
+                e.preventDefault();
+                socket.emit('Join room', {
+                    name: $nickBox2.val(),
+                    room: $roomBox2.val()
+                }, function(callback,msg) {
+                    if (callback) {
+                        console.log("yes");
+                        socket.emit('new user', $nickBox2.val(), $roomBox2.val());
+                       window.location.assign("http://localhost:3000/public/"+$roomBox.val()+".html");
+						}
+                     else {
+                        $nickError2.html('that room is not exist');
+                    }
+                });
+            });
+
+        });
+    </script>
+
+
+</section>
+
+
+
+</div>
+</body>
+</html>
